@@ -41,8 +41,11 @@ import statsmodels.api as sm
 # 1. SETTINGS
 # ============================================================
 
-FILE_PATH = r"C:\Users\HRIDOY\OneDrive\Desktop\MVT\Gold Futures Historical Data.csv"
-
+FILE_PATH = os.path.join(
+    os.path.dirname(os.path.dirname(__file__)),
+    "data",
+    "Gold Futures Historical Data.csv"
+)
 ALPHA = 0.05
 SEED = 12345
 
