@@ -16,45 +16,40 @@ The repository includes the Python code used for the simulations and empirical a
 
 ## Methodology
 
-For a time series of length \(n\), the observations are divided into \(k\) equal-sized segments:
+For a time series of length $n$, the observations are divided into $k$ equal-sized segments:
 
 $$
-m=\frac{n}{k}.
+m = \frac{n}{k}.
 $$
 
-Let \(v_j\) be the sample variance of segment \(j\). Under the Gaussian homoskedastic null hypothesis,
+Let $v_j$ be the sample variance of segment $j$. Under the Gaussian homoskedastic null hypothesis,
 
 $$
-H_0:\sigma_1^2=\sigma_2^2=\cdots=\sigma_k^2=\sigma^2,
+H_0: \sigma_1^2 = \sigma_2^2 = \cdots = \sigma_k^2 = \sigma^2,
 $$
 
 the segment variance follows
 
 $$
-\frac{(m-1)v_j}{\sigma^2}\sim\chi^2_{m-1}.
+\frac{(m-1) v_j}{\sigma^2} \sim \chi^2_{m-1}.
 $$
 
 The proposed MVT statistic is
 
 $$
-Q_{\mathrm{MVT}}
-=
-\frac{m-1}{2\bar v^2}
-\sum_{j=1}^{k}(v_j-\bar v)^2
+Q_{\mathrm{MVT}} = \frac{m-1}{2\bar{v}^2} \sum_{j=1}^{k} (v_j - \bar{v})^2
 $$
 
 where
 
 $$
-\bar v=\frac{1}{k}\sum_{j=1}^{k}v_j.
+\bar{v} = \frac{1}{k} \sum_{j=1}^{k} v_j.
 $$
 
-For fixed \(k\) and sufficiently large \(m\),
+For fixed $k$ and sufficiently large $m$,
 
 $$
-Q_{\mathrm{MVT}}
-\overset{d}{\longrightarrow}
-\chi^2_{k-1}.
+Q_{\mathrm{MVT}} \overset{d}{\longrightarrow} \chi^2_{k-1}.
 $$
 
 The study also derives the noncentral chi-square formulation under variance changes and an analytical noncentrality expression for a single break occurring at a segment boundary.
@@ -66,7 +61,7 @@ The study also derives the noncentral chi-square formulation under variance chan
 The number of segments is selected using the practical rule
 
 $$
-k^*=\left\lfloor c\sqrt n\right\rfloor,
+k^* = \left\lfloor c \sqrt{n} \right\rfloor,
 $$
 
 subject to a minimum segment size.
@@ -74,10 +69,10 @@ subject to a minimum segment size.
 For the Gold Futures application,
 
 $$
-m_{\min}=50.
+m_{\min} = 50.
 $$
 
-Equal segment sizes are used throughout the analysis. Therefore, a small number of observations may be excluded when \(n\) is not exactly divisible by \(k\).
+Equal segment sizes are used throughout the analysis. Therefore, a small number of observations may be excluded when $n$ is not exactly divisible by $k$.
 
 ---
 
@@ -98,18 +93,18 @@ The simulations examine:
 - ARCH-type dependence;
 - large-sample computational performance.
 
-The main sample sizes are \(n=200,500,2500,\) and \(10000\).
+The main sample sizes are $n = 200, 500, 2500,$ and $10000$.
 
 Variance-change scenarios use
 
 $$
-\sigma_2^2\in\{1.10,1.25,1.50,2,3,5\}
+\sigma_2^2 \in \{1.10,\ 1.25,\ 1.50,\ 2,\ 3,\ 5\}
 $$
 
 with break locations
 
 $$
-\eta\in\{0.25,0.50,0.75\}.
+\eta \in \{0.25,\ 0.50,\ 0.75\}.
 $$
 
 ---
@@ -120,8 +115,8 @@ MVT is compared with several established procedures:
 
 - Bartlett's test
 - Levene's test
-- Goldfeld--Quandt test
-- Breusch--Pagan test
+- Goldfeld–Quandt test
+- Breusch–Pagan test
 - White's test
 - Iterative Cumulative Sum of Squares (ICSS)
 
@@ -140,14 +135,14 @@ The analysis includes:
 3. ARIMA modeling
 4. Residual diagnostics
 5. MVT testing
-6. Sensitivity analysis for \(k\)
+6. Sensitivity analysis for $k$
 7. Segment-wise variance estimation
 8. Comparison with classical tests
 
 The final segmentation uses
 
 $$
-k=99,\qquad m=50,
+k = 99, \qquad m = 50,
 $$
 
 with 4,950 observations.
@@ -155,13 +150,13 @@ with 4,950 observations.
 The final MVT result is
 
 $$
-Q_{\mathrm{MVT}}=1540.9529,
+Q_{\mathrm{MVT}} = 1540.9529,
 $$
 
 with 98 degrees of freedom and an asymptotic p-value of approximately
 
 $$
-7.67\times10^{-258}.
+p \approx 7.67 \times 10^{-258}.
 $$
 
 Because the residuals are not normally distributed and show heteroskedasticity, this p-value is treated as a **model-based reference**, not a distribution-free significance level.
