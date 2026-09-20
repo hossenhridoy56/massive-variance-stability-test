@@ -40,7 +40,7 @@ $$
 Q_{\mathrm{MVT}}
 =
 \frac{m-1}{2\bar v^2}
-\sum_{j=1}^{k}(v_j-\bar v)^2,
+\sum_{j=1}^{k}(v_j-\bar v)^2
 $$
 
 where
